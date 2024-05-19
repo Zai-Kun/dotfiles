@@ -6,7 +6,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
-set $menu rofi -show drun
+set $menu rofi -drun-use-desktop-cache -show drun
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
@@ -44,6 +44,7 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 for_window [app_id="firefox"] border none
+for_window [app_id="Waydroid"] border none
 
 default_border pixel 2
 default_floating_border pixel 2
