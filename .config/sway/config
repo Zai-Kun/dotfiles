@@ -36,7 +36,7 @@ set $mantle #181825
 set $crust #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $pink $base $text  $rosewater $pink
+client.focused           $red $base $text  $rosewater $red
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
@@ -50,6 +50,8 @@ default_floating_border pixel 2
 
 focus_follows_mouse no 
 output * bg $(find $HOME/dotfiles/assets/wallpapers -type f | shuf -n1) fill
+
+bindsym $mod+Shift+s exec grim /tmp/idk.png
 
 bindsym $mod+Return exec $term
 
