@@ -6,7 +6,8 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
-set $menu rofi -drun-use-desktop-cache -show drun
+# set $menu rofi -drun-use-desktop-cache -show drun
+set $menu bemenu-run --fb "#1e1e2e" --ff "#cdd6f4" --nb "#1e1e2e" --nf "#cdd6f4" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#f38ba8" --hf "#f9e2af" --af "#cdd6f4" --ab "#1e1e2e" -b
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
