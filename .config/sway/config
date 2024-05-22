@@ -44,7 +44,7 @@ client.background        $base
 # clipboard stuff
 exec wl-clip-persist --clipboard both
 exec wl-paste --watch cliphist store
-bindsym $mod+c exec cliphist list | bemenu | cliphist decode | wl-copy
+bindsym $mod+c exec cliphist list | ~/assets/bins/filter | bemenu | ~/assets/bins/decode | cliphist decode | wl-copy
 bindsym $mod+Alt+c exec rm ~/.cache/cliphist/db
 
 # border
