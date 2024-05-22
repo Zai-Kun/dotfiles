@@ -44,9 +44,8 @@ client.background        $base
 # clipboard stuff
 exec wl-clip-persist --clipboard both
 exec wl-paste --watch cliphist store
-
-# bmenu with cliphist
 bindsym $mod+c exec cliphist list | bemenu | cliphist decode | wl-copy
+bindsym $mod+Alt+c exec rm ~/.cache/cliphist/db
 
 # border
 for_window [app_id="firefox"] border none
