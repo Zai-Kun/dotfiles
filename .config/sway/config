@@ -1,14 +1,10 @@
-# programs to execute
-exec wl-clip-persist --clipboard both
-
-
 set $mod Mod4
 set $left h
 set $down j
 set $up k
 set $right l
 set $term foot
-set $menu bemenu-run --fb "#1e1e2e" --ff "#cdd6f4" --nb "#1e1e2e" --nf "#cdd6f4" --tb "#1e1e2e" --hb "#1e1e2e" --tf "#f38ba8" --hf "#f9e2af" --af "#cdd6f4" --ab "#1e1e2e" -b
+set $menu bemenu-run 
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
@@ -45,16 +41,28 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+# clipboard stuff
+exec wl-clip-persist --clipboard both
+exec wl-paste --watch cliphist store
+
+# bmenu with cliphist
+bindsym $mod+c exec cliphist list | bemenu | cliphist decode | wl-copy
+
+# border
 for_window [app_id="firefox"] border none
 for_window [app_id="Waydroid"] border none
-
 default_border pixel 2
 default_floating_border pixel 2
-focus_follows_mouse no 
 
+focus_follows_mouse no
+
+# swaybg
 output * bg $(find $HOME/dotfiles/assets/wallpapers -type f | shuf -n1) fill
 
+# screenshot
 bindsym $mod+Shift+s exec grim /tmp/ss.png
+
+# terminal
 bindsym $mod+Return exec $term
 
     # Kill focused window
