@@ -60,7 +60,8 @@ default_floating_border pixel 2
 focus_follows_mouse no
 
 # swaybg
-output * bg $(find $HOME/dotfiles/assets/wallpapers -type f | shuf -n1) fill
+exec ~/assets/bin/swww-daemon
+exec ~/assets/bin/swww img $(find $HOME/dotfiles/assets/wallpapers -type f | shuf -n1)
 
 # screenshot
 bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
