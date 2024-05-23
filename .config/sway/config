@@ -63,7 +63,8 @@ focus_follows_mouse no
 output * bg $(find $HOME/dotfiles/assets/wallpapers -type f | shuf -n1) fill
 
 # screenshot
-bindsym $mod+Shift+s exec grim /tmp/ss.png
+bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
+bindsym Print exec grim - | wl-copy
 
 # terminal
 bindsym $mod+Return exec $term
