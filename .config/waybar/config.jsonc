@@ -1,0 +1,18 @@
+{
+    "height": 20,
+    "layer": "top",
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+    ],
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    }
+}
