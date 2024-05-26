@@ -42,7 +42,9 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 # exec daemons
+exec nm-applet
 exec mako
+exec ~/assets/bins/swww-daemon
 
 # clipboard stuff
 exec wl-clip-persist --clipboard both
@@ -59,8 +61,7 @@ default_floating_border pixel 2
 
 focus_follows_mouse no
 
-# swaybg
-exec ~/assets/bins/swww-daemon
+# setbg
 exec ~/assets/bins/swww img $(find $HOME/dotfiles/assets/wallpapers/live -type f | shuf -n1)  --transition-step 255
 
 # screenshot
