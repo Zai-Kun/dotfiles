@@ -49,7 +49,7 @@ window#waybar.hidden {
 
 #clock,
 #tray {
-    padding: 4px;
+    padding: 3px 4px;
     margin: 3px;
     border-radius: 4px;
     background-color: #1e1e2e;
