@@ -64,9 +64,12 @@ focus_follows_mouse no
 # setbg
 exec ~/assets/bins/swww img $(find $HOME/dotfiles/assets/wallpapers/live -type f | shuf -n1)  --transition-step 255
 
-# screenshot
+# screenshot and screen recording
 bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
 bindsym Print exec grim - | wl-copy
+
+bindsym $mod+Shift+Print exec ~/assets/bins/recorder_wrapper
+bindsym $mod+Shift+Ctrl+Print exec pkill --signal SIGINT wf-recorder
 
 # terminal
 bindsym $mod+Return exec $term
