@@ -44,13 +44,13 @@ client.background        $base
 # exec daemons
 exec nm-applet
 exec mako
-exec ~/assets/bins/swww-daemon
+exec ~/assets/sys_bins/swww-daemon
 
 # clipboard stuff
 exec wl-clip-persist --clipboard both
 exec wl-paste --type text/plain --watch cliphist store
 exec wl-paste --type image --watch cliphist store
-bindsym $mod+c exec cliphist list | ~/assets/bins/filter | bemenu | ~/assets/bins/decode | cliphist decode | wl-copy
+bindsym $mod+c exec cliphist list | ~/assets/sys_bins/filter | bemenu | ~/assets/sys_bins/decode | cliphist decode | wl-copy
 bindsym $mod+Alt+c exec rm ~/.cache/cliphist/db
 
 # border
@@ -62,13 +62,13 @@ default_floating_border pixel 2
 focus_follows_mouse no
 
 # setbg
-exec ~/assets/bins/swww img $(find $HOME/dotfiles/assets/wallpapers/live -type f | shuf -n1)  --transition-step 255
+exec ~/assets/sys_bins/swww img $(find $HOME/dotfiles/assets/wallpapers/live -type f | shuf -n1)  --transition-step 255
 
 # screenshot and screen recording
 bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
 bindsym Print exec grim - | wl-copy
 
-bindsym $mod+Shift+Print exec ~/assets/bins/recorder_wrapper
+bindsym $mod+Shift+Print exec ~/assets/sys_bins/recorder_wrapper
 bindsym $mod+Shift+Ctrl+Print exec pkill --signal SIGINT wf-recorder
 
 # terminal

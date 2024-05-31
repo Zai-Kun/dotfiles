@@ -1,0 +1,11 @@
+#!/bin/bash
+
+mkdir $@
+cd $@
+git init
+python3 -m venv .venv
+touch main.py
+echo ".venv" >> .gitignore
+echo "{\"venvPath\": \".\",  \"venv\": \".venv\"}" >> pyrightconfig.json 
+
+gh repo create --private --source . --remote=origin
