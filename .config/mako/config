@@ -1,9 +1,7 @@
-# Colors
-
 font=CaskaydiaCove Nerd Font 10
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-color=#f38ba8
+border-color=#94e2d5
 progress-color=over #313244
 default-timeout=5000
 

@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background-color: #1e1e2e;
+    background-color: {{base}};
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -32,18 +32,18 @@ window#waybar.hidden {
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    color: #1e1e2e;
-    background-color: #94e2d5;
+    color: {{base}};
+    background-color: {{main_colorscheme}};
 }
 
 
 #workspaces button.focused {
     color: #1e1e2e;
-    background-color: #94e2d5;
+    background-color: {{main_colorscheme}};
 }
 
 #workspaces button.urgent {
-    background-color: #94e2d5;
+    background-color: {{main_colorscheme}};
     color: #1e1e2e;
 }
 
@@ -54,10 +54,10 @@ window#waybar.hidden {
     border-radius: 4px;
     background-color: #1e1e2e;
     color: #181825;
-    border: solid #94e2d5 1px;
+    border: solid {{main_colorscheme}} 1px;
 }
 
 #clock {
-    background-color: #94e2d5;
+    background-color: {{main_colorscheme}};
     border: none;
 }
