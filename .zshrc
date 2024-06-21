@@ -127,3 +127,4 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:~/assets/usr_bins
+export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
