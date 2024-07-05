@@ -16,9 +16,8 @@ require("mappings")
 require("lazy").setup("plugins", {
     change_detection = {
         notify = false,
-    }
-}
-)
+    },
+})
 
 -- theme
 local pick_random_value = function(table)
