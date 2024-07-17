@@ -128,3 +128,5 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:~/assets/usr_bins
 export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
+eval "$(zoxide init zsh)"
+alias cd="z"
