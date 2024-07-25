@@ -1,0 +1,7 @@
+Fix internet issue on arch live:
+modprobe -r tg3
+modprobe broadcom
+modprobe tg3
+source: https://bbs.archlinux.org/viewtopic.php?id=100796
+
+

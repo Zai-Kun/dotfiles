@@ -1,0 +1,2 @@
+Install pyenv
+Install rustup
