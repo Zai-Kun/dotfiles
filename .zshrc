@@ -130,3 +130,4 @@ export PATH=$PATH:~/assets/usr_bins
 export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
 eval "$(zoxide init zsh)"
 alias cd="z"
+alias qmount="sudo mount -o uid=$(id -u $(logname)),gid=$(id -g $(logname))"
