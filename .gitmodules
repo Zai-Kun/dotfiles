@@ -10,3 +10,9 @@
 [submodule "assets/omz-custom/themes/powerlevel10k"]
 	path = assets/omz-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
+[submodule ".config/yazi/assets/catppuccin-yazi"]
+	path = .config/yazi/assets/catppuccin-yazi
+	url = https://github.com/catppuccin/yazi
+[submodule ".config/yazi/assets/catppuccin-syntax-highlighting-bat"]
+	path = .config/yazi/assets/catppuccin-syntax-highlighting-bat
+	url = https://github.com/catppuccin/bat
