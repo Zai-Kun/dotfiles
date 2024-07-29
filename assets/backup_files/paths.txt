@@ -4,3 +4,4 @@
 /home/zai/anime
 /home/zai/Downloads
 /home/zai/Documents
+/home/zai/.zsh_history
