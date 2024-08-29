@@ -8,7 +8,7 @@ ICONS_FOLDER = "/usr/share/icons"
 ICON_THEME_NAME = "Papirus-Dark"
 
 
-def update(flavour: str, color: str):
+def update(flavour: str, color: str, _):
     themes = set(
         [
             theme

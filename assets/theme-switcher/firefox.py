@@ -22,7 +22,7 @@ THEMES = {
 }
 
 
-def update(flavour: str, color: str):
+def update(flavour: str, color: str, _):
     if not flavour in THEMES or color not in THEMES.get(flavour, []):
         print(f"ERROR: Theme {flavour}-{color} not found for firefox... skipping")
         return
