@@ -4,4 +4,7 @@ modprobe broadcom
 modprobe tg3
 source: https://bbs.archlinux.org/viewtopic.php?id=100796
 
+Adjust screen brightness with gammastep:
+gammastep -l 0:0 -o -b 0.7:0.7 & disown
 
+source: https://askubuntu.com/questions/1286458/does-wayland-have-an-equivalent-of-xrandr-for-changing-brightness-and-color-temp
