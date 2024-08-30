@@ -2,9 +2,7 @@
     "flavour": "mocha",
     "color": "sapphire",
     "exclude": [
-        "firefox",
-        "gtk",
-        "wallpaper"
+        "firefox"
     ],
     "extra_options": {
         "wallpaper": {

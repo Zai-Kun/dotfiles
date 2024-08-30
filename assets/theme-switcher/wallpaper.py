@@ -19,12 +19,7 @@ def get_random_wallpaper(color: str, path: str) -> str | None:
     return random.choice(walls)
 
 
-def update(flavour: str, color: str, extra_options: dict[str, Any]):
-    theme = json.load(open("./themes/catppuccin.json")).get(flavour)
-    if not theme or not theme.get("colors", {}).get(color):
-        print(f"ERROR: Theme {flavour}-{color} not found for sway... skipping")
-        return
-
+def update(_: str, color: str, extra_options: dict[str, Any]):
     wall_type = "live"
     wall_name = None
 
