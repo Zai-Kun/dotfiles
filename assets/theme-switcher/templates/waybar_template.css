@@ -44,12 +44,20 @@ window#waybar.hidden {
     color: {{red}};
 }
 
-#clock,
-#tray {
-    padding-right: 3px;
-    padding-left: 3px;
+#pulseaudio,
+#memory,
+#cpu,
+#clock{
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
+#tray{
+    padding-right: 5px;
+    padding-left: 4px;
+}
+
+#custom-divider,
 #clock {
     background-color: transparent;
     color: {{main_colorscheme}};

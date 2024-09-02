@@ -10,6 +10,11 @@
         "clock"
     ],
     "modules-right": [
+        "pulseaudio",
+        "custom/divider",
+        "memory",
+        "cpu",
+        "custom/divider",
         "tray"
     ],
     "clock": {
@@ -36,7 +41,44 @@
             "on-scroll-down": "shift_down"
         }
     },
+    "pulseaudio": {
+        "max-volume": 150,
+        "scroll-step": 5,
+        "format": "{icon}:{volume}%",
+        "format-muted": "󰝟",
+        "tooltip-format": "{volume}%",
+        "format-icons": {
+            "default": [
+                "",
+                " ",
+                " "
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_SINK@ toggle"
+    },
+    "memory": {
+        "format": ".:{used:0.1f}G",
+        "states": {
+            "high": 70,
+            "critical": 90
+        },
+        "on-click": "foot -e btop",
+        "tooltip-format": "{used} GB/{total} GB used ({percentage}%)\n{swapUsed} GB/{swapTotal} GB swap used ({swapPercentage}%)"
+    },
+    "cpu": {
+        "format": " :{usage}%",
+        "states": {
+            "high": 70,
+            "critical": 90
+        },
+        "on-click": "foot -e btop"
+    },
+    "custom/divider": {
+        "format": "|",
+        "tooltip": false
+    },
     "tray": {
-        "spacing": 3
+        "spacing": 5
     }
 }
