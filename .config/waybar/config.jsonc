@@ -10,6 +10,7 @@
         "clock"
     ],
     "modules-right": [
+        "custom/backlight",
         "pulseaudio",
         "custom/divider",
         "memory",
@@ -40,6 +41,19 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
+    },
+    "custom/backlight": {
+        "exec": "~/dotfiles/assets/sys_bins/backlight",
+        "return-type": "json",
+        "format": "{icon} :{percentage}",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "tooltip": false,
+        "on-scroll-up": "exec curl http://localhost:53482/inc",
+        "on-scroll-down": "exec curl http://localhost:53482/dec"
     },
     "pulseaudio": {
         "max-volume": 150,

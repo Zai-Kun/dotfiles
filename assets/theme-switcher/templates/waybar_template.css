@@ -44,6 +44,7 @@ window#waybar.hidden {
     color: {{red}};
 }
 
+#custom-backlight,
 #pulseaudio,
 #memory,
 #cpu,
