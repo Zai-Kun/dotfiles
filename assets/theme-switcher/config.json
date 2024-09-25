@@ -1,13 +1,13 @@
 {
     "flavour": "mocha",
-    "color": "sapphire",
+    "color": "pink",
     "exclude": [
         "firefox"
     ],
     "extra_options": {
         "wallpaper": {
             "wallpaper_type": "live",
-            "wall_name": "sapphire-night-office.gif"
+            "wall_name": null
         }
     }
 }
