@@ -2,12 +2,14 @@ import subprocess
 from subprocess import CompletedProcess
 from typing import Any
 
+from _shared import logger
+
 
 def run_shell_command(command: str) -> CompletedProcess[str]:
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     if result.returncode != 0:
-        print(f"Error: Command '{command}' failed with exit code {result.returncode}")
-        print(f"stderr: {result.stderr}")
+        logger.error(f"Command '{command}' failed with exit code {result.returncode}")
+        logger.error(f"stderr: {result.stderr}")
     return result
 
 

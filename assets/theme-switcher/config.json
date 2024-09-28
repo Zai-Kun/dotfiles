@@ -1,6 +1,6 @@
 {
-    "flavour": "mocha",
-    "color": "pink",
+    "theme": "catppuccin_mocha",
+    "accent": "blue",
     "exclude": [
         "firefox"
     ],

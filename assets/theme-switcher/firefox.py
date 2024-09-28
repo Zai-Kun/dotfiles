@@ -1,9 +1,10 @@
-import json
+from types import ModuleType
 
-from base import run_shell_command
+from _base import run_shell_command
+from _shared import logger
 
 THEMES = {
-    "mocha": {
+    "catppuccin_mocha": {
         "rosewater": "https://color.firefox.com/?theme=XQAAAAJIBAAAAAAAAABBqYhm849SCicxcUcPX38oKRicm6da8pFtMcajvXaAE3RJ0F_F447xQs-L1kFlGgDKq4IIvWciiy4upusW7OvXIRinrLrwLvjXB37kvhN5ElayHo02fx3o8RrDShIhRpNiQMOdww5V2sCMLAfehhp-xlD-Zf6HJJgDbqifsiIq_a2RRGaUncUnzeg6lTPcgQNfz1hBf6lIha-TMcQ0OC_Y8oiW-4UoxanynabXGejX_f8IhSPzNMp0XTpOMTWOf7grI812P4DPaDkme2vDIexpMC9nf6NqwDHbXzWVwhxmFJMR15TxS33pCCxL6tLViB65N3Phr0bFEZ4tHYAH_2ncvD1wIAPzhKsAGRbNHXB5SInOEdjiIH4zsNtmuA-v3FZ7jGF4bHEEYo7U7RK2gLk4sU8lvjOcnWNWn19Kt_7T8j8eGHI-VlclrW5OZyNWCzwrO2Tp1FIk8oB0QpPl6cuHagXsvFnzyHzZf42ebQi05-_cJTnKypEvELb3lQhcypa1vh3t8gHYB3yCJPKFsd3PIogv1Y1NuIYFpnGQgMdP2P_y1yBV",
         "flamingo": "https://color.firefox.com/?theme=XQAAAAJHBAAAAAAAAABBqYhm849SCicxcUcPX38oKRicm6da8pFtMcajvXaAE3RJ0F_F447xQs-L1kFlGgDKq4IIvWciiy4upusW7OvXIRinrLrwLvjXB37kvhN5ElayHo02fx3o8RrDShIhRpNiQMOdww5V2sCMLAfehhp8u7kT4nh31-_5sD_P8FhlfX9Sdj_brd9hzw5NA_jx4peTGmoiUcikCHxa8Sm8bylvXElo3HHzylyv8f7R7gwkSEe8Mkq_ERB00vhRYSdLVEI7OR2j9y8UtYJhXmmHxXtQ2a2q0wDt9h-Dv7L5NTOL6rXow07mQCwsiafOlEKwLdkeAd2DoxJ1_Pu_amXOiUhOKrOw2DBrS-cIjSXWu9in58J8EBSEno0b4K2apcsY4mww6HdBAXjQjS7PBl1Eoli3qcNvy3o0v-yq9guO7ozjOWAFY-rVMCACPIWLr-pEBHErXolnftBIiOuC_k1brGAscZ579rDSHW_Bf9KewXOw3subWzfX0sPqI5eJLXKKLKfJEuPnm7z6IlEkCi__KG8k0-VIsE0lvbgk_dPXNsl8__ihao0",
         "pink": "https://color.firefox.com/?theme=XQAAAAJDBAAAAAAAAABBqYhm849SCicxcUcPX38oKRicm6da8pFtMcajvXaAE3RJ0F_F447xQs-L1kFlGgDKq4IIvWciiy4upusW7OvXIRinrLrwLvjXB37kvhN5ElayHo02fx3o8RrDShIhRpNiQMOdww5V2sCMLAfehhp-xkeer3MCWdRzOxwUd1idIdYygjYcDC9HOohbgoQY1wJYK0MG9FFPmpCOo5rViKWXT2rMRBQb2guhvABroGB6LqX-HZ9JR9FU6ZnHTCdQPn261avChXEifYgCOyCKdS9ZoXxv_HHhkTIaEsdaPO9_OsUjQOnRR9pOQ-2-gaJG0tk5WJBmW2OdZHi6QoWbHvo-LCxDCc5eM3Jnlsv7tefW8SXXnLqRKzvRpV5w-LJMsxKo2sk_mbfjvCt5UXn08uJWISpZgv-55kH1p9oHbjThn2WEQRY5WG7yRe3QfTR0WgAOhFyS8twgohbNtAGIYntaJW-9ziKrBuB5ASBAQ_wKYehawNAyShIBulC6wkZK2RoN8CeDkNDHQH8xS1cfyPOuC1OiL9DwyNUyDzvtj_zmaZw",
@@ -22,9 +23,19 @@ THEMES = {
 }
 
 
-def update(flavour: str, color: str, _):
-    if not flavour in THEMES or color not in THEMES.get(flavour, []):
-        print(f"ERROR: Theme {flavour}-{color} not found for firefox... skipping")
+def update(theme: ModuleType, accent: str | None, _):
+    if not theme.NAME in THEMES:
+        logger.error(f"Theme '{theme.NAME}' not found... skipping")
         return
 
-    run_shell_command(f'firefox "{THEMES[flavour][color]}" ')
+    theme_name = theme.NAME
+    _theme = THEMES[theme_name]
+
+    if accent is not None:
+        if isinstance(_theme, str) or accent not in _theme:
+            logger.error(
+                f"Accent '{accent}' for theme '{theme_name}' not found... skipping"
+            )
+            return
+
+    run_shell_command(f'firefox "{_theme if not accent else _theme[accent]}"')
