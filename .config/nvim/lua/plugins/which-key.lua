@@ -6,10 +6,8 @@ return {
 		vim.o.timeoutlen = 300
 
 		local wk = require("which-key")
-		wk.register({
-			["<leader>"] = {
-				b = "+buffers",
-			},
+		wk.add({
+			{ "<leader>b", group = "+buffers" },
 		})
 	end,
 }
