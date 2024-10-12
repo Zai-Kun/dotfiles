@@ -15,7 +15,7 @@ HEADERS = {
     "Authorization": AUTH_TOKEN,
 }
 DISCORD_API = "https://discord.com/api/v10/{}"
-GUILD_ID = "1183064183646982164"  # from which guild do you wanna download emojis from. set it to None it download em from all
+GUILD_ID = None  # from which guild do you wanna download emojis from. set it to None it download em from all
 EXCLUDE_GUILDS = []
 SKIP_ANIMATED_EMOJIS = True
 EMOJI_SIZE = None  # max
