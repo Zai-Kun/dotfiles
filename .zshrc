@@ -126,7 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=$PATH:~/assets/usr_bins
+export PATH=$PATH:~/assets/usr_bins:~/.modular/pkg/packages.modular.com_mojo/bin
 export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -136,3 +136,4 @@ alias wu="wg-quick up nl"
 alias wd="wg-quick down nl"
 alias spotube="MESA_GL_VERSION_OVERRIDE=4.3 spotube"
 export PATH="/home/zai/.koyeb/bin:$PATH"
+export LD_LIBRARY_PATH=/home/zai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
