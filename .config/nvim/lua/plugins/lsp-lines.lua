@@ -3,7 +3,7 @@ return {
     config = function()
         require("lsp_lines").setup()
         vim.diagnostic.config({
-            virtual_text = false,
+            virtual_text = true,
             virtual_lines = { only_current_line = true },
         })
     end,
