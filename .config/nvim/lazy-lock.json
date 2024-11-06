@@ -3,7 +3,6 @@
   "CopilotChat.nvim": { "branch": "canary", "commit": "760d291e9c2a0e19ef2882ee77a87e5571ee532f" },
   "LuaSnip": { "branch": "master", "commit": "29417eea5b7c4b6beda105ced072855101d9680e" },
   "activate.nvim": { "branch": "main", "commit": "809b1df4a885c6f67539c5aa80fd8c9920c04da4" },
-  "base64.nvim": { "branch": "main", "commit": "67fb5f12db252b3e2bd190250d3edbed7aa8d3aa" },
   "bufferline.nvim": { "branch": "main", "commit": "5c528bee3dd797d5bd6bae5f229411939b25b203" },
   "catppuccin": { "branch": "main", "commit": "35d8057137af463c9f41f169539e9b190d57d269" },
   "citruszest.nvim": { "branch": "main", "commit": "d12c99f937114b908e935a9cda1953bb8f16bcc8" },
