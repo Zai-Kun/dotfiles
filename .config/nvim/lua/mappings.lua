@@ -2,43 +2,51 @@ local map = vim.keymap.set
 
 -- General
 local press_key = function(key)
-	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
 end
 
 local save = function()
-	vim.cmd("w")
-	press_key("<Esc>")
+    vim.cmd("w")
+    press_key("<Esc>")
 end
 
+local format = function()
+    vim.lsp.buf.format()
+    if vim.bo.filetype == 'python' then
+        vim.cmd('silent! !ruff check --fix --select I -q %')
+    end
+end
+
+
 map({ "n", "i", "v", "c" }, "<C-s>", save, { desc = "Save and switch to normal mode", noremap = true })
-map({ "n", "i", "v", "c" }, "<C-f>", vim.lsp.buf.format, { desc = "Format the current buffer", noremap = true })
+map({ "n", "i", "v", "c" }, "<C-f>", format, { desc = "Format the current buffer", noremap = true })
 
 map({ "i", "v", "c" }, "<C-b>", function()
-	press_key("<Esc>")
+    press_key("<Esc>")
 end, { desc = "Switch to normal mode", noremap = true })
 
 map({ "n", "v" }, "<Home>", "^", { noremap = true, desc = "Returns to the last non-empty character" })
 
 map({ "v", "n" }, "<C-Home>", function()
-	press_key("gg0")
+    press_key("gg0")
 end, { noremap = true })
 map({ "v", "n" }, "<C-S-Home>", function()
-	press_key("gg0")
+    press_key("gg0")
 end, { noremap = true })
 
 map(
-	"i",
-	"<Home>",
-	"<CMD>:normal! ^<CR>",
-	{ noremap = true, silent = true, desc = "Returns to the last non-empty character in insert mode" }
+    "i",
+    "<Home>",
+    "<CMD>:normal! ^<CR>",
+    { noremap = true, silent = true, desc = "Returns to the last non-empty character in insert mode" }
 )
 
 map("x", "<leader>p", '"_dP', { noremap = true, desc = "Paste without copying the content" })
 map(
-	"n",
-	"<leader>r",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ noremap = true, desc = "Replace word under cursor" }
+    "n",
+    "<leader>r",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { noremap = true, desc = "Replace word under cursor" }
 )
 map("n", "n", "nzzzv", { noremap = true, desc = "Center the screen after jumping to the next match" })
 map("n", "N", "Nzzzv", { noremap = true, desc = "Center the screen after jumping to the previous match" })

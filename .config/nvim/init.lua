@@ -71,3 +71,13 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
 -- Saving the undolist for future sessions
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
+
+-- Load custom stuff
+local dir = vim.fn.stdpath('config') .. '/lua/custom_stuff'
+
+local files = vim.fn.glob(dir .. '/*.lua', false, true)
+
+for _, file in ipairs(files) do
+  dofile(file)
+end
+
