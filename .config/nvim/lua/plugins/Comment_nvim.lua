@@ -1,6 +1,6 @@
 return {
     "numToStr/Comment.nvim",
-    event="BufReadPost",
+    event="BufRead",
     config = function()
         require("Comment").setup({
             toggler = {
