@@ -4,7 +4,7 @@ return {
     keys = {
         {
             "<A-h>",
-            "<Cmd>ToggleTerm direction=horizontal<cr>",
+            "<Cmd>1ToggleTerm direction=horizontal<cr>",
             desc = "Toggle horizontal terminal",
             noremap = true,
             silent = true,
@@ -12,7 +12,7 @@ return {
         },
         {
             "<A-v>",
-            "<Cmd>ToggleTerm direction=vertical<cr>",
+            "<Cmd>2ToggleTerm direction=vertical size=50<cr>",
             desc = "Toggle vertical terminal",
             noremap = true,
             silent = true,
@@ -20,7 +20,7 @@ return {
         },
         {
             "<A-t>",
-            "<Cmd>ToggleTerm direction=float<cr>",
+            "<Cmd>3ToggleTerm direction=float<cr>",
             desc = "Toggle floating terminal",
             noremap = true,
             silent = true,
