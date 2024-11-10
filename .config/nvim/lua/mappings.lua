@@ -12,11 +12,10 @@ end
 
 local format = function()
     vim.lsp.buf.format()
-    if vim.bo.filetype == 'python' then
-        vim.cmd('silent! !ruff check --fix --select I -q %')
+    if vim.bo.filetype == "python" then
+        vim.cmd("silent! !ruff check --fix --select I -q %")
     end
 end
-
 
 map({ "n", "i", "v", "c" }, "<C-s>", save, { desc = "Save and switch to normal mode", noremap = true })
 map({ "n", "i", "v", "c" }, "<C-f>", format, { desc = "Format the current buffer", noremap = true })
@@ -25,8 +24,8 @@ map({ "i", "v", "c" }, "<C-b>", function()
     press_key("<Esc>")
 end, { desc = "Switch to normal mode", noremap = true })
 
-map('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-map('t', '<C-b>', '<C-\\><C-n>', { noremap = true, silent = true })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+map("t", "<C-b>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 map({ "n", "v" }, "<Home>", "^", { noremap = true, desc = "Returns to the last non-empty character" })
 
