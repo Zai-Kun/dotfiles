@@ -81,3 +81,8 @@ for _, file in ipairs(files) do
   dofile(file)
 end
 
+-- Open terminal in insert mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "startinsert",
+})

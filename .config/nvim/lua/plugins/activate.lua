@@ -1,5 +1,6 @@
 return {
 	"roobert/activate.nvim",
+    lazy = true,
 	keys = {
 		{
 			"<leader>P",

@@ -58,6 +58,9 @@ local function set_text(mode, new_text)
             end_col = end_col + 1
         end
         
+        -- Replace newlines with spaces in normal mode
+        new_text = new_text:gsub("\n", " ")
+        
         -- Update the line with the new text
         local updated_line = line:sub(1, start_col - 1) .. new_text .. line:sub(end_col)
         vim.fn.setline('.', updated_line)
@@ -70,13 +73,30 @@ local function set_text(mode, new_text)
             local updated_line = lines[1]:sub(1, start_pos[3] - 1) .. new_text .. lines[1]:sub(end_pos[3] + 1)
             vim.fn.setline(start_pos[2], updated_line)
         else
-            local updated_first_line = lines[1]:sub(1, start_pos[3] - 1) .. new_text
-            vim.fn.setline(start_pos[2], updated_first_line)
-            for i = start_pos[2] + 1, end_pos[2] - 1 do
-                vim.fn.setline(i, "")
+            -- When encoding, join all lines into one with spaces
+            if not new_text:match("\n") then
+                local updated_line = lines[1]:sub(1, start_pos[3] - 1) .. new_text
+                vim.fn.setline(start_pos[2], updated_line)
+                -- Delete the rest of the lines in the selection
+                if end_pos[2] > start_pos[2] then
+                    vim.cmd(string.format('%d,%dd', start_pos[2] + 1, end_pos[2]))
+                end
+            else
+                -- When decoding and result has newlines
+                local result_lines = vim.split(new_text, "\n", true)
+                local updated_first_line = lines[1]:sub(1, start_pos[3] - 1) .. result_lines[1]
+                vim.fn.setline(start_pos[2], updated_first_line)
+                
+                -- Delete existing lines in selection
+                if end_pos[2] > start_pos[2] then
+                    vim.cmd(string.format('%d,%dd', start_pos[2] + 1, end_pos[2]))
+                end
+                
+                -- Insert the rest of the lines
+                for i = 2, #result_lines do
+                    vim.fn.append(start_pos[2] + i - 1, result_lines[i])
+                end
             end
-            local updated_last_line = lines[#lines]:sub(end_pos[3] + 1)
-            vim.fn.setline(end_pos[2], updated_last_line)
         end
     end
 end
@@ -106,6 +126,7 @@ function decode_base64(mode)
     end
 end
 
+-- Set up mappings for both normal and visual mode
 vim.api.nvim_set_keymap("n", "<leader>be", ":lua encode_base64('normal')<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>bd", ":lua decode_base64('normal')<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<leader>be", ":lua encode_base64('visual')<CR>", { noremap = true, silent = true })

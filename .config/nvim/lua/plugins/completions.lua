@@ -1,16 +1,22 @@
 return {
     {
         "hrsh7th/cmp-nvim-lsp",
+        event = "LspAttach",
     },
     {
         "L3MON4D3/LuaSnip",
+        event = { "InsertEnter" },
         dependencies = {
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
         },
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
     },
     {
         "hrsh7th/nvim-cmp",
+        event = { "InsertEnter" },
         dependencies = {
             "onsails/lspkind.nvim",
         },
@@ -18,7 +24,6 @@ return {
             local cmp = require("cmp")
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-            require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
                 experimental = { ghost_text = true },

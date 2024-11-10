@@ -25,6 +25,9 @@ map({ "i", "v", "c" }, "<C-b>", function()
     press_key("<Esc>")
 end, { desc = "Switch to normal mode", noremap = true })
 
+map('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+map('t', '<C-b>', '<C-\\><C-n>', { noremap = true, silent = true })
+
 map({ "n", "v" }, "<Home>", "^", { noremap = true, desc = "Returns to the last non-empty character" })
 
 map({ "v", "n" }, "<C-Home>", function()
@@ -51,6 +54,9 @@ map(
 map("n", "n", "nzzzv", { noremap = true, desc = "Center the screen after jumping to the next match" })
 map("n", "N", "Nzzzv", { noremap = true, desc = "Center the screen after jumping to the previous match" })
 
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
+map("n", ";", ":")
+
 -- Indentation
 map("x", "<Tab>", ">gv", { noremap = true })
 map("x", "<S-Tab>", "<gv", { noremap = true })
@@ -65,3 +71,9 @@ map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 map("v", "<S-Down>", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "<S-Up>", ":m '<-2<CR>gv=gv", { noremap = true })
+
+-- Moving between windows
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })

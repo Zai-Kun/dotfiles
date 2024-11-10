@@ -1,5 +1,6 @@
 return {
 	"CopilotC-Nvim/CopilotChat.nvim",
+    lazy = true,
 	branch = "canary",
 	cmd = "CopilotChat",
 	opts = function()

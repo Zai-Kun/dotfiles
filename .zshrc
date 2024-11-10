@@ -135,5 +135,6 @@ alias copy="rsync -ah --partial --info=PROGRESS2"
 alias wu="wg-quick up nl"
 alias wd="wg-quick down nl"
 alias spotube="MESA_GL_VERSION_OVERRIDE=4.3 spotube"
+alias libre="librewolf"
 export PATH="/home/zai/.koyeb/bin:$PATH"
 export LD_LIBRARY_PATH=/home/zai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
