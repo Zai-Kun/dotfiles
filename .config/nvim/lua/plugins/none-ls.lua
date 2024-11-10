@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 local formators = {
 	stylua = "lua",
 	prettier = {
@@ -42,36 +41,15 @@ return {
 			end
 			null_ls.setup({
 				sources = sources,
-=======
-return {
-	{
-		"nvimtools/none-ls.nvim",
-		config = function()
-			local null_ls = require("null-ls")
-
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettier,
-					-- null_ls.builtins.formatting.black,
-					-- null_ls.builtins.formatting.isort,
-				},
->>>>>>> f63564eaba5dd27d3c8f4b08d8eae7f19d22bd89
 			})
 		end,
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
-<<<<<<< HEAD
 		ft = ft,
 		config = function()
 			require("mason-null-ls").setup({
 				ensure_installed = vim.tbl_keys(formators),
-=======
-		config = function()
-			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "black", "isort", "ruff", "prettier" },
->>>>>>> f63564eaba5dd27d3c8f4b08d8eae7f19d22bd89
 			})
 		end,
 	},

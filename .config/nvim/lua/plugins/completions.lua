@@ -1,5 +1,4 @@
 return {
-<<<<<<< HEAD
     {
         "hrsh7th/cmp-nvim-lsp",
         event = "LspAttach",
