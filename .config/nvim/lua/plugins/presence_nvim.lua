@@ -1,6 +1,6 @@
 return {
 	"andweeb/presence.nvim",
-    event = "BufRead",
+    event = {"BufReadPost", "BufNewFile"},
 	config = function()
 		require("presence").setup({
 			neovim_image_text = "The One True Text Editor",

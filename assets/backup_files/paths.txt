@@ -1,6 +1,5 @@
 /home/zai/tmp
 /home/zai/Desktop/projects
-/home/zai/.mozilla/firefox/ijax5tdg.default-release-1719346069380
 /home/zai/anime
 /home/zai/Downloads
 /home/zai/Documents

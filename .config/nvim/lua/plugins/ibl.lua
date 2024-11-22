@@ -14,7 +14,7 @@ local excluded_filetypes = {
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
+        event = {"BufReadPost", "BufNewFile"},
 		opts = {
 			indent = {
 				char = "│",
@@ -28,7 +28,7 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		version = false,
-        event = "BufRead",
+        event = {"BufReadPost", "BufNewFile"},
 		opts = {
 			symbol = "│",
 			options = { try_as_border = true },

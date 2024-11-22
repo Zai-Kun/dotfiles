@@ -11,3 +11,6 @@ source: https://askubuntu.com/questions/1286458/does-wayland-have-an-equivalent-
 
 Fix "gpg: keyserver receive failed: Server indicated a failure":
 https://bbs.archlinux.org/viewtopic.php?id=276969
+
+Using X11 apps on wayland with xwayland:
+GDK_BACKEND=x11 some-x11-app
