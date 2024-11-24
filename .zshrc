@@ -10,7 +10,7 @@ export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH=$PATH:~/assets/usr_bins:~/.modular/pkg/packages.modular.com_mojo/bin
+export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin
 export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
 export PATH="/home/zai/.koyeb/bin:$PATH"
 export LD_LIBRARY_PATH=/home/zai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
@@ -28,13 +28,13 @@ alias libre="librewolf"
 
 # Zsh and zsh plugins related
 ZSH_THEME="powerlevel10k/powerlevel10k" # Set name of the theme to load --- if set to "random", it will
-ZSH_CUSTOM="$HOME/dotfiles/assets/omz-custom"
+ZSH_CUSTOM="$HOME/assets/omz-custom"
 plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
-source ~/dotfiles/assets/omz-custom/.zsh_files/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/assets/omz-custom/.zsh_files/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
 # Uncomment the following lines to customize behavior
