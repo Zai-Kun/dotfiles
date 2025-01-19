@@ -12,11 +12,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin
 export GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme | tr -d "'")
-export PATH="/home/zai/.koyeb/bin:$PATH"
-export LD_LIBRARY_PATH=/home/zai/.local/lib/arch-mojo:$LD_LIBRARY_PATH
+export PATH=~/.koyeb/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+export LD_LIBRARY_PATH=~/.local/lib/arch-mojo:$LD_LIBRARY_PATH
 
 # Aliases
-alias ch_wipe='rm ~/.cache/cliphist/db'
+alias rc_whipe='~/assets/bins/rustyclip clear'
 alias pyenv_init='eval "$(pyenv init -)"'
 alias cd="z"
 alias qmount="sudo mount -o uid=$(id -u $(logname)),gid=$(id -g $(logname))"
@@ -25,6 +26,7 @@ alias wu="wg-quick up nl"
 alias wd="wg-quick down nl"
 alias spotube="MESA_GL_VERSION_OVERRIDE=4.3 spotube"
 alias libre="librewolf"
+alias rebot="sleep 4 && reboot"
 
 # Zsh and zsh plugins related
 ZSH_THEME="powerlevel10k/powerlevel10k" # Set name of the theme to load --- if set to "random", it will
@@ -73,3 +75,5 @@ source $ZSH/oh-my-zsh.sh
 # Additional configurations
 eval "$(zoxide init zsh)"
 source "$HOME/.local/bin/env"
+
+. "$HOME/.limbo/env"

@@ -39,6 +39,10 @@ local themes = {
 
 vim.cmd.colorscheme(pick_random_value(themes))
 
+-- Saving the undolist for future sessions
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
+
 -- For big files
 local function disable_syntax_treesitter()
     print("Big file, disabling syntax, treesitter, and folding")
@@ -67,10 +71,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
         end
     end,
 })
-
--- Saving the undolist for future sessions
-vim.opt.undofile = true
-vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
 
 -- Load custom stuff
 local dir = vim.fn.stdpath('config') .. '/lua/custom_stuff'

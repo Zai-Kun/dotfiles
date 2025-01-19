@@ -1,6 +1,6 @@
 {
     "theme": "catppuccin_mocha",
-    "accent": "pink",
+    "accent": "lavender",
     "exclude": [
         "firefox"
     ],

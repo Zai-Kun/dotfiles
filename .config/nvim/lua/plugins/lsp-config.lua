@@ -4,7 +4,8 @@ local lsps = {
     ruff = "python",
     jsonls = "json",
     rust_analyzer = "rust",
-    cssls = "css"
+    cssls = "css",
+    clangd = { "c", "cpp" }
 }
 
 local exclude_from_auto_setup = {
