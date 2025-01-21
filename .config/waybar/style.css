@@ -44,7 +44,8 @@ window#waybar.hidden {
     color: #f38ba8;
 }
 
-#custom-backlight,
+#custom-wl-gammarelay-temperature,
+#custom-wl-gammarelay-brightness,
 #pulseaudio,
 #memory,
 #cpu,

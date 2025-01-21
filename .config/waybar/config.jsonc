@@ -10,7 +10,8 @@
         "clock"
     ],
     "modules-right": [
-        "custom/backlight",
+        "custom/wl-gammarelay-temperature",
+        "custom/wl-gammarelay-brightness",
         "pulseaudio",
         "custom/divider",
         "memory",
@@ -18,6 +19,18 @@
         "custom/divider",
         "tray"
     ],
+    "custom/wl-gammarelay-temperature": {
+        "format": ":{}",
+        "exec": "wl-gammarelay-rs watch {t}",
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+    },
+    "custom/wl-gammarelay-brightness": {
+        "format": ":{}%",
+        "exec": "wl-gammarelay-rs watch {bp} & ./scripts/wait_and_set_brightness.sh",
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.05",
+        "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.05"
+    },
     "clock": {
         "format": "{:%a, %d. %b  %H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -41,19 +54,6 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
-    },
-    "custom/backlight": {
-        "exec": "~/dotfiles/assets/sys_bins/backlight",
-        "return-type": "json",
-        "format": "{icon} :{percentage}",
-        "format-icons": [
-            "󰃞",
-            "󰃟",
-            "󰃠"
-        ],
-        "tooltip": false,
-        "on-scroll-up": "exec curl http://localhost:53482/inc",
-        "on-scroll-down": "exec curl http://localhost:53482/dec"
     },
     "pulseaudio": {
         "max-volume": 150,
