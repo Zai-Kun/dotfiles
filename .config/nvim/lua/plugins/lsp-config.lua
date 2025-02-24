@@ -5,13 +5,14 @@ local lsps = {
     jsonls = "json",
     rust_analyzer = "rust",
     cssls = "css",
-    clangd = { "c", "cpp" }
+    clangd = { "c", "cpp" },
+    ts_ls = { "typescript", "javascript" },
 }
 
 local exclude_from_auto_setup = {
     "pyright",
     "rust_analyzer",
-    "ruff"
+    "ruff",
 }
 
 local ft = {}
@@ -94,6 +95,7 @@ return {
                 settings = {
                     ["rust-analyzer"] = {
                         cargo = { allFeatures = true },
+                        procMacro = { enable = true },
                     },
                 },
                 handlers = { -- https://github.com/neovim/neovim/issues/30985
@@ -111,9 +113,9 @@ return {
                     end,
                 },
             })
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-		end,
-	},
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+        end,
+    },
 }
